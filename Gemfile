@@ -42,9 +42,7 @@ group :development do
   gem 'listen', '~> 3.3'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "stimulus_reflex", "~> 3.4"
-
 gem "annotate", "~> 3.1"
+gem 'hamlit-rails'
