@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_180559) do
+ActiveRecord::Schema.define(version: 2021_01_13_234553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_180559) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ticker"
   end
 
   create_table "markets", force: :cascade do |t|
@@ -34,11 +35,10 @@ ActiveRecord::Schema.define(version: 2021_01_10_180559) do
     t.string "slug"
     t.integer "base_id", null: false
     t.integer "quote_id", null: false
-    t.bigint "market_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["market_id"], name: "index_pairs_on_market_id"
+    t.integer "market_id"
+    t.decimal "rate", precision: 20, scale: 10, default: "0.0", null: false
   end
 
-  add_foreign_key "pairs", "markets"
 end

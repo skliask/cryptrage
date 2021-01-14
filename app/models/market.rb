@@ -1,4 +1,5 @@
 class Market < ApplicationRecord
+  has_many :pairs
 end
 
 # == Schema Information

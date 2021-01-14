@@ -9,3 +9,41 @@ body {
     color: purple;
   }
 }
+.grid-tables {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+}
+
+.market-tables {
+  table {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+  }
+
+  thead {
+    flex: 0 0 auto;
+  }
+
+  tbody {
+    height: 30vh;
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+tr {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+@media (max-width:768px) {
+  .market-tables {
+    grid-template-columns: 1fr;
+  }
+}

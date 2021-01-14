@@ -1,0 +1,16 @@
+.grid-tables
+  - @pairs.each do |pair|
+    %div
+      %table.table.table-striped.table-light.table-borderless.table-hover
+        %thead.table-primary
+          %tr
+            %th.h5{colspan: 3}= pair.name
+          %tr.table-dark
+            %th{:scope => "col"} Market
+            %th{:scope => "col"} Rate
+        %tbody
+          - pair.markets.each do |market|
+            %tr
+              %td{:scope => "row"}= pair.base.ticker
+              %td= pair.quote.ticker
+
