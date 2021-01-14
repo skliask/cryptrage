@@ -9,6 +9,7 @@ body {
     color: purple;
   }
 }
+
 .grid-tables {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr ;
@@ -33,6 +34,14 @@ body {
     display: block;
     overflow-y: auto;
     overflow-x: hidden;
+  }
+}
+
+.margin-table {
+  table{
+    tbody{
+      height: 80vh;
+    }
   }
 }
 

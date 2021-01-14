@@ -1,7 +1,7 @@
 .market-tables.grid-tables
   - @markets.each do |market|
     %div
-      %table.table.table-striped.table-light.table-borderless.table-hover
+      %table.table.table-striped.table-borderless.table-hover
         %thead.table-primary
           %tr
             %th.h5{colspan: 3}= market.name
@@ -11,8 +11,8 @@
             %th{:scope => "col"} Rate
         %tbody
           - market.pairs.includes(:base, :quote).with_rate.each do |pair|
-            %tr{id: "#{pair.id}"}
+            %tr{id: "row#{pair.id}"}
               %td{:scope => "row"}= pair.base.ticker
               %td= pair.quote.ticker
-              %td= pair.rate.to_s
+              %td.rate= pair.rate.to_s
 
