@@ -1,14 +1,14 @@
-%h2 Top 100 crypto margin opportunities
+%h4 Margin of value for the same pairs in different markets
 %br
 %div.market-tables.margin-table
-  %table.table.table-striped.table-borderless.table-hover
+  %table.table.table-striped.table-borderless.table-hover.table-responsive.table-sm
     %thead.table-primary
       %tr.table-primary
         %th
         %th{colspan: 3} Base market
         %th
         %th{colspan: 3} Quote market
-        %th{:scope => "col"} Percentage
+        %th{:scope => "col"} Profit
       %tr.table-dark
         %th{:scope => "col"} #
         %th{:scope => "col"} Name
@@ -31,5 +31,5 @@
           %td= margin.quote.market.name
           %td= margin.quote.base.ticker + " - " + margin.quote.base.name
           %td= margin.quote.quote.ticker + " - " + margin.quote.quote.name
-          %td.rate= margin.margin.to_s + " %"
+          %td.rate.bg-dark.text-light= margin.margin.to_s + " %"
 

@@ -4,6 +4,10 @@ class Pair < ApplicationRecord
   belongs_to :market
 
   scope :with_rate, -> { where.not(rate: 0) }
+
+  def reverse_pairs
+    Pair.where(base: quote, quote: base)
+  end
 end
 
 # == Schema Information
@@ -12,6 +16,7 @@ end
 #
 #  id         :bigint           not null, primary key
 #  name       :string
+#  price_btc  :decimal(20, 10)  default(0.0), not null
 #  rate       :decimal(20, 10)  default(0.0), not null
 #  slug       :string
 #  created_at :datetime         not null

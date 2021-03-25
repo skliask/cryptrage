@@ -4,9 +4,15 @@ body {
   padding-top: 5rem;
 }
 
+.navbar {
+  padding-bottom: 0;
+}
+
 .navbar-brand {
+  padding-bottom: 0.5vh;
   i {
     color: purple;
+    margin-right: 2vw;
   }
 }
 
@@ -16,7 +22,21 @@ body {
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
 }
+#menu {
+  li{
+    padding: 0 3vw 0vh 3vw;
+    border-bottom: 3px #f8f9fa solid;
 
+    &.active {
+      border-bottom: 3px purple solid;
+
+      .nav-link {
+        color: purple;
+        font-weight: 600;
+      }
+    }
+  }
+}
 .market-tables {
   table {
     display: flex;

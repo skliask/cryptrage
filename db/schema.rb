@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_14_115030) do
+ActiveRecord::Schema.define(version: 2021_03_24_181229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,19 @@ ActiveRecord::Schema.define(version: 2021_01_14_115030) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "market_id"
     t.decimal "rate", precision: 20, scale: 10, default: "0.0", null: false
+    t.decimal "price_btc", precision: 20, scale: 10, default: "0.0", null: false
+  end
+
+  create_table "triangles", force: :cascade do |t|
+    t.bigint "pair_a_id", null: false
+    t.bigint "pair_b_id", null: false
+    t.bigint "pair_c_id", null: false
+    t.decimal "rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pair_a_id"], name: "index_triangles_on_pair_a_id"
+    t.index ["pair_b_id"], name: "index_triangles_on_pair_b_id"
+    t.index ["pair_c_id"], name: "index_triangles_on_pair_c_id"
   end
 
 end

@@ -1,0 +1,46 @@
+%h4 Opportunities for profitable triangular arbitrage
+%br
+%div.market-tables.margin-table
+  %table.table.table-striped.table-borderless.table-hover.table-responsive.table-sm
+    %thead.table-primary
+      %tr.table-primary
+        %th
+        %th{colspan: 3} Pair A
+        %th
+        %th{colspan: 3} Pair B
+        %th
+        %th{colspan: 3} Pair C
+        %th{:scope => "col"} Profit
+      %tr.table-dark
+        %th{:scope => "col"} #
+        %th{:scope => "col"} Market
+        %th{:scope => "col"} Base
+        %th{:scope => "col"} Quote
+        %th{:scope => "col-xs"}
+        %th{:scope => "col"} Market
+        %th{:scope => "col"} Base
+        %th{:scope => "col"} Quote
+        %th{:scope => "col-xs"}
+        %th{:scope => "col"} Market
+        %th{:scope => "col"} Base
+        %th{:scope => "col"} Quote
+        %th{:scope => "col"} %
+    %tbody.text-small
+      - @triangles.each_with_index do |triangle, i|
+        %tr{id: "row#{triangle.id}"}
+          %td= i + 1
+          %td.text-secondary= triangle.pair_a.market.name
+          %td= triangle.pair_a.base.ticker + " - " + triangle.pair_a.base.name
+          %td= triangle.pair_a.quote.ticker + " - " + triangle.pair_a.quote.name
+          %td
+            %i.fas.fa-arrow-right
+          %td.text-secondary= triangle.pair_b.market.name
+          %td= triangle.pair_b.base.ticker + " - " + triangle.pair_b.base.name
+          %td= triangle.pair_b.quote.ticker + " - " + triangle.pair_b.quote.name
+          %td
+            %i.fas.fa-arrow-right
+          %td.text-secondary= triangle.pair_c.market.name
+          %td= triangle.pair_c.base.ticker + " - " + triangle.pair_c.base.name
+          %td= triangle.pair_c.quote.ticker + " - " + triangle.pair_c.quote.name
+          %td.rate.bg-dark.text-light= triangle.rate.to_s + " %"
+

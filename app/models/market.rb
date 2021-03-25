@@ -1,5 +1,5 @@
 class Market < ApplicationRecord
-  has_many :pairs
+  has_many :pairs, dependent: :destroy
 end
 
 # == Schema Information

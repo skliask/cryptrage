@@ -20,9 +20,11 @@ class PairValueUpdaterJob < ApplicationJob
         pair = market.pairs.where(base: base, quote: quote).first
 
         if pair
-          value = ticker["last"].to_d
-          pair.update_column(:rate, value )
-          ActionCable.server.broadcast("market_channel",{id: pair.id,rate: value})
+          pair.rate = ticker["last"].to_d
+          pair.price_btc = ticker["converted_last"]["btc"].to_d
+          if pair.save
+            ActionCable.server.broadcast("market_channel",{id: pair.id,rate: pair.rate})
+          end
         end
       end
     end

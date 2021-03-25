@@ -7,6 +7,19 @@
     %button.navbar-toggler{"aria-controls" => "menu", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#menu", "data-bs-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #menu.collapse.navbar-collapse
-      %ul.navbar-nav.me-auto.mb-2.mb-md-0
-        %li.nav-item
-          = link_to "Markets", markets_path, class: 'nav-link'
+      %ul.navbar-nav.justify-content-between.me-auto.mb-2.mb-md-0
+        %li.nav-item.dropdown{class: "#{'active' if params[:controller] == 'markets'}"}
+          %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#"} Markets
+          %ul.dropdown-menu{"aria-labelledby" => "dropdown01"}
+            %li
+              = link_to "List", markets_path, class: 'dropdown-item'
+            %li
+              = link_to "Create", new_market_path, class: 'dropdown-item'
+
+        %li.nav-item{class: "#{'active' if params[:controller] == 'margins'}"}
+          = link_to "Reverse pair", margins_path, class: 'nav-link'
+        %li.nav-item{class: "#{'active' if params[:controller] == 'triangles'}"}
+          = link_to "Triangular", triangles_path, class: 'nav-link'
+      -#
+        %li.nav-item{class: "#{'active' if params[:controller] == ''}"}
+          = link_to "Insane", markets_path, class: 'nav-link'

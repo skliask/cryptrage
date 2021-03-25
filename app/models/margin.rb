@@ -1,6 +1,10 @@
 class Margin < ApplicationRecord
   belongs_to :base, class_name: "Pair"
   belongs_to :quote, class_name: "Pair"
+
+  def reverse_margin
+    Margin.where(base: quote, quote: base).take
+  end
 end
 
 # == Schema Information

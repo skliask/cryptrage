@@ -1,6 +1,6 @@
 class Asset < ApplicationRecord
-validates :slug, :ticker, presence: true
-validates :slug, :ticker, uniqueness: true
+  validates :slug, :ticker, presence: true
+  validates :slug, :ticker, uniqueness: true
 end
 
 # == Schema Information
