@@ -44,3 +44,4 @@
           %td= triangle.pair_c.quote.ticker + " - " + triangle.pair_c.quote.name
           %td.rate.bg-dark.text-light= triangle.rate.to_s + " %"
 
+  = paginate @triangles, window: 20

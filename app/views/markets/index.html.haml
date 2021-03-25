@@ -1,18 +1,19 @@
-%table.table.table-striped.table-borderless.table-hover
-  %thead.table-primary
-    %tr
-      %th{:scope => "col"} Market
-      %th{:scope => "col"} Pairs
-      %th.col-md-1{:scope => "col-md-1"} Actions
-    %tbody
-      - @markets.each do |market|
-        %tr{id: "row#{market.id}"}
-          %td
-            .d-inline= market.name
-            .d-inline.small.text-secondary= market.slug
-          %td= market.pairs.count
-          %td.col-md-1
-            = link_to market, method: :delete, data: { confirm: 'Are you sure?' } do
-              %i.fas.fa-trash.text-danger
+.col-md-12
+  %table.table.table-striped.table-borderless.table-hover
+    %thead.table-primary
+      %tr
+        %th{:scope => "col"} Market
+        %th{:scope => "col"} Pairs
+        %th.col-md-1{:scope => "col-md-1"} Actions
+      %tbody
+        - @markets.each do |market|
+          %tr{id: "row#{market.id}"}
+            %td
+              .d-inline= market.name
+              .d-inline.small.text-secondary= market.slug
+            %td= market.pairs.count
+            %td.col-md-1
+              = link_to market, method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.fas.fa-trash.text-danger
 
-= paginate @markets
+  = paginate @markets

@@ -49,19 +49,10 @@ body {
   }
 
   tbody {
-    height: 30vh;
     flex: 1 1 auto;
     display: block;
     overflow-y: auto;
     overflow-x: hidden;
-  }
-}
-
-.margin-table {
-  table{
-    tbody{
-      height: 80vh;
-    }
   }
 }
 
